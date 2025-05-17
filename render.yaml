@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: resolvex
+    env: go
+    buildCommand: go build -o resolvex cmd/server/main.go
+    startCommand: ./resolvex
+    envVars:
+      - key: REDIS_URL
+        value: rediss://default:AVNS_c-QFPUvg2ltsPEef4jt@valkey-256b1451-cass.g.aivencloud.com:28362
+      - key: SERVER_PORT
+        value: "8080"
+      - key: RATE_LIMIT
+        value: "100"
+      - key: RATE_LIMIT_TTL
+        value: "60"
+      - key: PREFETCH_INTERVAL
+        value: "300"
+      - key: PREFETCH_LIMIT
+        value: "10"
